@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+     <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Form</title>
+     </head>
+
+     <body>
+          <form action="/create" method="POST">
+               <label>
+                    Name
+                    <input type="text" name="name" placeholder="Enter your name">
+               </label>
+               <br>
+               <br>
+               <label>
+                    Email
+                    <input type="email" name="email" placeholder="Enter your email">
+               </label>
+               <br>
+               <br>
+               <input type="submit" value="Submit">
+          </form>
+          <br>
+          <br>
+          <h1>Update Form</h1>
+          <form action="/update/2" method="POST" class="form1">
+               <label>
+                    Name
+                    <input type="text" name="name" placeholder="Enter your name" value="{{entry.name}}">
+               </label>
+               <br>
+               <br>
+               <label>
+                    Email
+                    <input type="email" name="email" placeholder="Enter your email" value="{{entry.email}}">
+               </label>
+               <br>
+               <br>
+               <input type="submit" value="Update">
+          </form>
+          <script>
+
+               document.querySelector('form').addEventListener("submit", (event) => {
+                    event.preventDefault();
+
+                    const form = event.target;
+
+                    fetch(form.action, {
+                         method: form.method,
+                         body: new FormData(form)
+                    })
+                         .then(res => res.json())
+                         .then(res => console.log(res))
+                         .catch(err => console.log(err))
+
+               })
+               document.querySelector('.form1').addEventListener("submit", (event) => {
+                    event.preventDefault();
+
+                    const form = event.target;
+
+                    fetch(form.action, {
+                         method: form.method,
+                         body: new FormData(form)
+                    })
+                         .then(res => res.json())
+                         .then(res => console.log(res))
+                         .catch(err => console.log(err))
+
+               })
+
+          </script>
+     </body>
+
+</html>
