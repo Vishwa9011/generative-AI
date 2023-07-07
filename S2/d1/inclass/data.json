@@ -1,0 +1,10 @@
+{
+	"dishes": [
+		{
+			"id": "be206142-24c7-47d1-8f71-5da1b9e6d19e",
+			"name": "check",
+			"price": 1,
+			"stock": 1
+		}
+	]
+}
