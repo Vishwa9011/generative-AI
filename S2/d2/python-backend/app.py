@@ -74,6 +74,39 @@ def delete(id):
     return 'Id not found'
 
 
+# -----------Order----------
+
+@app.route("/orders")
+def orders():
+    data = load_data()
+    return data['orders']
+
+
+@app.route("/neworder", methods=["POST"])
+def createOrder():
+    json_data = load_data()
+    data = request.get_json()
+    print(f'data {data}')
+    json_data['orders'].append(data)
+    save_data(json_data)
+    return f"Congratulations Form has been submitted"
+
+
+@app.route('/updateorder/<string:id>', methods=['POST'])
+def updateOrder(id):
+    json_data = load_data()
+    data = list(filter(lambda order: order["id"] == id, json_data['orders']))
+    if data and data[0].get('id'):
+        client_data = request.get_json()
+        for i, order in enumerate(json_data['orders']):
+            if order['id'] == id:
+                json_data['orders'][i]["status"] = client_data["status"]
+                save_data(json_data)
+                return 'Data has been updated successfully.'
+        return 'Entry not found for the given ID.'
+    return 'Invalid data or name is missing.'
+
+
 # Open AI Chat Assistance with the help of ChatGPT
 openai.api_key = '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'
 
