@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+}
+
+
+form {
+     inset: 0;
+     gap: 1rem;
+     width: 20rem;
+     height: 20rem;
+     padding: 1rem;
+     display: grid;
+     grid-template-columns: 1fr;
+     position: fixed;
+     margin: auto;
+     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+input {
+     padding: .5rem;
+     height: max-content;
+}

@@ -1,0 +1,34 @@
+<style>
+     table {
+          width: 80%;
+          margin: auto;
+          border-collapse: collapse;
+     }
+
+     td,
+     th {
+          text-align: center;
+          border: 1px solid black;
+     }
+</style>
+
+<div>
+     <table>
+          <thead>
+               <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Status</th>
+               </tr>
+          </thead>
+          <tbody>
+               <tr *ngFor="let todo of todos">
+                    <td>{{ todo.id }}</td>
+                    <td>{{ todo.title }}</td>
+                    <td>{{ todo.description }}</td>
+                    <td>{{ todo.status ? 'Completed' : 'Pending' }}</td>
+               </tr>
+          </tbody>
+     </table>
+</div>

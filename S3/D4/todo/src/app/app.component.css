@@ -1,0 +1,16 @@
+nav {
+     padding: 1rem;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.menu-list {
+     display: flex;
+     gap: 1rem;
+}
+
+li {
+     list-style: none;
+}
